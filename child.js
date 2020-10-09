@@ -11,5 +11,5 @@ button.addEventListener('click', event => {
     // ここに#buttonをクリックしたら発生させる処理を記述する
     // 親へメッセージを送信
     // postMessage(<送信する値>, <送信先のドメイン>)
-    window.parent.postMessage([files, start_time], 'http://hiroki-yoneda.github.io');
+    window.parent.postMessage([files, start_time], 'https://hiroki-yoneda.github.io');
 });

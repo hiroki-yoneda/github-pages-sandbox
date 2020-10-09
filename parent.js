@@ -1,6 +1,6 @@
 const receiveMessage = function (event) {
   // 引数のオリジンの URL のチェック
-  if (event.origin !== "http://hiroki-yoneda.github.io") {
+  if (event.origin !== "https://hiroki-yoneda.github.io") {
     console.warn("INVALID ORIGIN");
     return;
   }
