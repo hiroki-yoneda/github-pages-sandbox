@@ -12,13 +12,16 @@ const receiveMessage = function (event) {
       preview.src = e.target.result
       preview.width = 100
 
+      // 子から送られてきたデータをロードするまでの時間
       const time = document.getElementById("time");
       const date = new Date();
       time.innerHTML = date.getTime() - s_time + " millisec"
   }
   reader.readAsDataURL(event.data[0][0])
 
-  // 受け取ったデータの出力。
+  // 選択したファイルのサイズ(byte)を表示
+  const size = document.getElementById("size");
+  size.innerHTML = "file size " + event.data[0][0].size + " byte";
 };
 
 window.addEventListener("message", receiveMessage, false);
