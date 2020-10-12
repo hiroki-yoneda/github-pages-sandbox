@@ -6,9 +6,11 @@ const receiveMessage = function (event) {
   }
 
   const s_time = event.data[1];
-  const time = document.getElementById("time");
+  const time_ele = document.getElementById("time");
   const date = new Date();
-  time.innerHTML = "time " + date.getTime() - s_time + " millisec (web message)";
+  const time = date.getTime() - s_time
+  console.log(time)
+  time_ele.innerHTML = "time " + time + " millisec (web message)";
 
   const reader = new FileReader();
   reader.onload = function (e) {
@@ -16,10 +18,9 @@ const receiveMessage = function (event) {
       preview.src = e.target.result;
       preview.width = 100;
 
-      // 子から送られてきたデータをロードするまでの時間
-      const load_time = document.getElementById("load_time");
-      const load_date = new Date();
-      load_time.innerHTML = "time " + load_date.getTime() - s_time + " millisec (onload)";
+      const load_time_ele = document.getElementById("load_time");
+      const load_time = date.getTime() - s_time
+      load_time_ele.innerHTML = "time " + load_time + " millisec (onload)";
   }
   reader.readAsDataURL(event.data[0][0]);
 
