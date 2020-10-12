@@ -19,7 +19,8 @@ const receiveMessage = function (event) {
       preview.width = 100;
 
       const load_time_ele = document.getElementById("load_time");
-      const load_time = date.getTime() - s_time
+      const load_date = new Date();
+      const load_time = load_date.getTime() - s_time
       load_time_ele.innerHTML = "time " + load_time + " millisec (onload)";
   }
   reader.readAsDataURL(event.data[0][0]);
